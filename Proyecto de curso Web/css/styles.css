@@ -509,13 +509,19 @@ section .image img {
 /* contactanos */
 
 .contact-section {
-background-color: #f8f9fa;
+background: url(../img/fondo-main.jpg) no-repeat center center/cover;
 padding: 80px 20px;
 display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
+background-attachment: fixed; /* Hace que el fondo permanezca fijo */
 }
+
+.contact-section::before{
+  background: linear-gradient(to bottom, rgba(34, 58, 53, 0.5), rgba(31, 30, 30, 0.774));
+}
+
 
 .contact-container {
 background: white;
