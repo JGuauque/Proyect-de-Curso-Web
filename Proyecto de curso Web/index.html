@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SGI  SUGUS</title>
 
-    <link rel="icon" href="Assets/Home/Logogym.jpg" type="img/jpg">
+    <link rel="icon" href="img/Logogym.jpg" type="img/jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
@@ -14,43 +14,60 @@
 
 </head>
 
+<script>
+  // Espera a que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('menu');
+    const links = document.querySelectorAll('.contenedor-nav a');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        // Desactiva el checkbox para cerrar el menú
+        checkbox.checked = false;
+      });
+    });
+  });
+</script>
+
+
 <body>
 
-<header id="inicio" >
-    <input type="checkbox" id="menu">
-        <label for="menu" class="hamburger">
-            <span class="barras">≡</span>
-            <span class="equis">x</span>
-        </label>
-    <section class="contenedor-nav">
-        <div class="logo">
-            <img src="" alt="">
-          <img src="img/Logogym.jpg" alt="logo">
-          <span>S U G U S</span>
-        </div>
-        <nav>
-         <ul>
-             <li><a href="#inicio">Inicio</a></li>
-             <li><a href="#conocenos">Ventajas</a></li>
-             <li><a href="#ubicacion">Descubre más</a></li>
-             <li><a href="#valores">Conócenos</a></li>
-             <nav class="-mx-3 flex flex-1 justify-end">
-                <li class="login"><a href="#">Iniciar Sesión</a></li> <!-- Nuevo item -->             
-         </ul>
-        </nav>
-     </section>
-     <section class="hero-section">
-        <div class="content">
-            <h5 class="section-title">S U G U S</h5>
-            <h1 class="main-title">Sistema de Gestion Web para Gimnasios</h1>
-            <p class="description">Aplicación web diseñada para gestionar de forma eficiente la administración de un gimnasio, incluyendo la organización de clases, instructores, clientes, usuarios y proveedores.</p>
-            <a href="#" class="cta-button">Descrubre más →</a>
-        </div>
-        <div class="image-container">
-            <img src="img/SGI2.jpg" alt="Imagen" class="hero-image">
-        </div>
-    </section>
+<header id="inicio">
+  <input type="checkbox" id="menu" />
+  <label for="menu" class="hamburger">
+    <span class="barras">≡</span>
+    <span class="equis">x</span>
+  </label>
+
+  <section class="contenedor-nav animated fade-in-down delay-0">
+    <div class="logo animated fade-in-down delay-1">
+      <img src="img/Logogym.jpg" alt="logo" />
+      <span>S U G U S</span>
+    </div>
+    <nav class="animated fade-in-down delay-2">
+      <ul>
+        <li class="round animated fade-in-left delay-3"><a href="#inicio">Inicio</a></li>
+        <li class="round animated fade-in-left delay-4"><a href="#conocenos">Ventajas</a></li>
+        <li class="round animated fade-in-left delay-5"><a href="#ubicacion">Descubre más</a></li>
+        <li class="round animated fade-in-left delay-6"><a href="#valores">Conócenos</a></li>
+        <li class="login animated fade-in-left delay-7"><a href="Login.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section class="hero-section">
+    <div class="content animated fade-in-up delay-8">
+      <h5 class="section-title">S U G U S</h5>
+      <h1 class="main-title">Sistema de Gestión Web para Gimnasios</h1>
+      <p class="description">Aplicación web diseñada para gestionar de forma eficiente la administración de un gimnasio...</p>
+      <a href="#ubicacion" class="cta-button">Descubre más →</a>
+    </div>
+    <div class="image-container animated fade-in zoom delay-9">
+      <img src="img/SGI2.jpg" alt="Imagen" class="hero-image" />
+    </div>
+  </section>
 </header>
+
 
 <section id="conocenos" class="features">
     <div class="feature-item">
@@ -136,6 +153,8 @@
     </div>
     <p>&copy; Untitled. All rights reserved.</p>
 </footer>
+
+<script src="js/loading.js"></script>
 
 </body>
 </html>

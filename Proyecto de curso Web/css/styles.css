@@ -2,6 +2,7 @@
 :root{
     --color-fuente:rgb(245, 247, 235);
     --tamano-titulos:3.5rem;
+
 }
  
 /* reset html */
@@ -9,6 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border: red solid 0.01px; */
 }
 
 html {
@@ -19,10 +21,57 @@ html {
 body{
     font-family: "Roboto",sans-serif;
 }
+
+/* Animaciones base */
+.animated {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Delays controlados por clase */
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+.delay-4 { animation-delay: 1.2s; }
+.delay-5 { animation-delay: 1.5s; }
+.delay-6 { animation-delay: 1.8s; }
+.delay-7 { animation-delay: 2.1s; }
+.delay-8 { animation-delay: 2.4s; }
+.delay-9 { animation-delay: 2.7s; }
+
+/* Animaciones específicas */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Aplicar las animaciones por clase */
+.fade-in-up   { animation: fadeInUp 0.8s ease forwards; }
+.fade-in-down { animation: fadeInDown 0.8s ease forwards; }
+.fade-in-left { animation: fadeInLeft 0.8s ease forwards; }
+.fade-in.zoom { animation: zoomIn 0.8s ease forwards; }
+
+
 /* header***************************************** */
 header {
     position: relative;
-    background: url(../Assets/Home/fondo-main.jpg) no-repeat center center/cover;
+    background: url(../img/fondo-main.jpg) no-repeat center center/cover;
     background-attachment: fixed; /* Hace que el fondo permanezca fijo */
     height: 100vh;
     display: flex;
@@ -45,6 +94,19 @@ header::before {
 /*BARRA DE NAVEGACION*/
 
 /* barra de navegacion */
+
+/* Ocultar icono de hamburguesa por defecto */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Mostrar y ocultar el nav según el checkbox */
+#menu {
+    display: none;
+}
+  
+
 .contenedor-nav{
     width: 100%;  
     position: fixed;
@@ -65,6 +127,7 @@ header::before {
 .logo img{
     height: 30px;
     width: auto;
+    border-radius: 10px;
    
 }
 .logo span{
@@ -101,7 +164,11 @@ header::before {
     color: #00A896; /* Cambia el color del texto */
 }
 
+
+
 /*PRIMERA SECTION*/
+
+
 
 .hero-section {
     display: flex;
@@ -111,6 +178,21 @@ header::before {
     padding: 20px;
     border-radius: 12px;
     z-index: 2; /* Esto asegura que los elementos estén por encima del degradado */
+}
+
+.hero-image {
+  width: auto;            /* Que ocupe todo el ancho de su contenedor */
+  height: auto;           /* Mantiene la proporción de la imagen */
+  max-width: 700px;       /* Opcional: limita el tamaño máximo */
+  display: block;         /* Elimina espacios blancos bajo la imagen */
+  margin: 0 auto;         /* Centrada si su contenedor lo permite */
+}
+
+.image-container {
+  width: 100%;
+  text-align: center;     
+  padding: 1rem;          
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -200,7 +282,7 @@ section .image img {
     max-width: 300px; /* Ancho máximo */
 }
 
-/* Iconos (usa una fuente de iconos como FontAwesome o similar) */
+/* Iconos (usa una fuente de    os como FontAwesome o similar) */
 .feature-item i {
     font-size: 40px; /* Tamaño del ícono */
     color: #ffffff; /* Color naranja */
@@ -225,7 +307,7 @@ section .image img {
 
 .feature-section {
     position: relative;
-    background: url(../Assets/Home/fondo-main.jpg) no-repeat center center/cover;
+    background: url(../img/fondo-main.jpg) no-repeat center center/cover;
     height: 100vh;
     display: flex;
     flex-direction: column; 
@@ -429,146 +511,405 @@ header label, input{
     display: none;
 }
 
-@media(max-width:768px){
-    .contenedor-nav{
-        flex-direction: column;
-        width: 50%;
-        top: 0;
-        left: -100%;
-        padding: 20px 0 0 0;
-    }
-    .logo{
-        margin-bottom: 40px;
-    }
-    .contenedor-nav nav{
-        width: 100%;
-        margin: 0;
- 
-    }
-    .contenedor-nav ul{
-        display: block;
-        width: 100%;
-        margin: 0;
-    }
-    .contenedor-nav ul li{
-        display: block;
-        margin: 0;
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid gray;
- 
- 
-    }
-    .hamburger{
+@media (min-width: 780px) and (max-width: 900px) {
+    .hamburger {
         display: block;
         position: fixed;
-        z-index: 200;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 5px;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        font-size: 2rem;
         color: white;
-        font-size: 25px;
-        background-color: rgba(0, 0, 0, 0.568);
-        border-radius: 3px;
-    }
-    .hamburger .equis{
-        display: none;
-    }
-    header input:checked~.hamburger .equis{
-        display: inline;
-    }
-    header input:checked~.hamburger .barras{
-        display: none;
-    }
-    header input:checked~.hamburger{
-        display: inline;
-        margin: 0;
-        left: 45%;
-    }
-    header input:checked~.contenedor-nav{
-        left: 0;
-    }
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
+  
+
+  /* Mostrar menú si el checkbox está activado */
+  #menu:checked ~ .contenedor-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* ✅ ocupa toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .contenedor-nav ul li.round a{
+    background-color: #00A896; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 50px; /* Esto crea un efecto de óvalo */
+    border: 2px solid transparent; /* Puedes agregar un borde si lo deseas */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Suaviza la transición al pasar el cursor */
 }
 
-/* General mobile styles */
-@media (max-width: 768px) {
+.contenedor-nav ul li.round a:hover {
+    background-color: transparent; /* Al pasar el cursor el fondo es transparente */
+    border-color: #00A896; /* Cambia el color del borde al pasar el cursor */
+    color: #00A896; /* Cambia el color del texto */
+}
 
-    /* Ajuste de la barra de navegación */
-    .contenedor-nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
+  nav li {
+    padding: 20px;
+  }
 
-    .contenedor-nav ul a {
-        font-size: 1rem;
-    }
+  .equis {
+    display: none;
+    color: white;
+  }
 
-    .textos-header h1 {
-        font-size: 2.5rem; /* Reduce el tamaño de los títulos en móviles */
-    }
+  #menu:checked + .hamburger .barras {
+    display: none;
+  }
 
-    .textos-header p {
-        font-size: 1rem;
-    }
+  #menu:checked + .hamburger .equis {
+    display: inline;
+  }
 
-    /* Ajuste del texto del botón */
-    .textos-header a {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    /* Ajustes de sección "conocer" */
-    .item-number {
-        font-size: 60px; /* Disminuye el tamaño del número grande */
-    }
+  .hero-image {
+    width: 90%;
+    max-width: 700px;
+    margin-top: 1rem;
+  }
 
-    .item-content {
-        margin-left: 80px;
-    }
+  .content {
+    order: 1;
+  }
 
-    /* Ajustes en la sección de ubicación */
-    .ubicacion {
-        height: auto; /* Permite que la altura sea flexible */
-        padding: 20px 0;
-    }
+  .image-container {
+    order: 2;
+  }
 
-    .contenedor-nuestra-ubicacion {
-        grid-template-columns: 1fr; /* Ajusta a una columna en móviles */
-        text-align: center;
-    }
+  .feature-section {
+    padding: 20px;
+    height: auto;
+  }
 
-    .img-nuestra-ubicacion,
-    .contenido-textos {
-        width: 100%;
-    }
+    
 
-    /* Ajustes en la sección de valores */
-    .valores {
-        padding: 40px 20px;
-    }
+    .feature-grid {        
+        display: grid;
+        grid-template-columns: 1fr; /* columna única */
+        gap: 30px;
+        justify-items: center;
+        padding: 0 1rem; /* para que no toquen los bordes */
+  }
 
-    .valores h1 {
-        font-size: 2rem;
-    }
+  
 
-    .valores p {
-        font-size: 1rem;
-    }
+  .feature-nav {
+        width: 70%;
+        box-sizing: border-box;
+        max-width: 600px; /* evitar que se vean gigantes en pantallas grandes dentro de ese rango */
+  }
 
-    .valores ul li {
-        font-size: 1rem;
-    }
+  .feature-nav img {
+        width: 300px;
+  }
 
-    /* Ajustes en el footer */
-    .footer {
-        padding: 20px 10px;
-    }
+ .features {
+    display: flex;
+    flex-direction: column; /* Organiza en columna */
+    align-items: center;     /* Centra horizontalmente */
+    gap: 1.5rem;
+  }
 
-    .social-icons a {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 18px;
-    }
+  .feature-item {
+    width: 100%;
+    max-width: 600px; /* Limita el ancho máximo */
+    box-sizing: border-box;
+  }
+  
+}
+  
+@media screen and (max-width: 780px) {
+    .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
+  #menu:checked ~ .contenedor-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .contenedor-nav ul li.round a {
+    background-color: #00A896;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .contenedor-nav ul li.round a:hover {
+    background-color: transparent;
+    border-color: #00A896;
+    color: #00A896;
+  }
+
+  nav li {
+    padding: 20px;
+  }
+
+  .equis {
+    display: none;
+    color: white;
+  }
+
+  #menu:checked + .hamburger .barras {
+    display: none;
+  }
+
+  #menu:checked + .hamburger .equis {
+    display: inline;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 90%;
+    max-width: 700px;
+    margin-top: 1rem;
+  }
+
+  .content {
+    order: 1;
+  }
+
+  .image-container {
+    order: 2;
+  }
+
+  .feature-section {
+    padding: 20px;
+    height: auto;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+    padding: 0 1rem;
+  }
+
+  .feature-nav {
+    width: 70%;
+    box-sizing: border-box;
+    max-width: 600px;
+  }
+
+  .feature-nav img {
+    width: 300px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 2rem;
+    color: white;
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
+  #menu:checked ~ .contenedor-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding: 1rem;
+    z-index: 999;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .contenedor-nav ul li.round a {
+    background-color: #00A896;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .contenedor-nav ul li.round a:hover {
+    background-color: transparent;
+    border-color: #00A896;
+    color: #00A896;
+  }
+
+  nav li {
+    padding: 20px;
+  }
+
+  .equis {
+    display: none;
+    color: white;
+  }
+
+  #menu:checked + .hamburger .barras {
+    display: none;
+  }
+
+  #menu:checked + .hamburger .equis {
+    display: inline;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 90%;
+    max-width: 700px;
+    margin-top: 1rem;
+  }
+
+  .content {
+    order: 1;
+  }
+
+  .image-container {
+    order: 2;
+  }
+
+  .feature-section {
+    padding: 20px;
+    height: auto;
+  }
+
+
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+    padding: 0 1rem;
+  }
+
+  .feature-nav {
+    width: 70%;
+    box-sizing: border-box;
+    max-width: 600px;
+  }
+
+  .feature-nav img {
+    width: 200px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .feature-item {
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
 }
