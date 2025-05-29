@@ -13,6 +13,11 @@
     /* border: red solid 0.01px; */
 }
 
+ :root{
+--color-fuente:rgb(245, 247, 235);
+--tamano-titulos:3.5rem;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -501,14 +506,116 @@ section .image img {
     color: white;
 }
 
+/* contactanos */
+
+.contact-section {
+background-color: #f8f9fa;
+padding: 80px 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+}
+
+.contact-container {
+background: white;
+border-radius: 20px;
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+max-width: 800px;
+width: 100%;
+}
+
+.contact-header {
+background: linear-gradient(135deg, #00A896, #5CE3C0);
+padding: 40px;
+text-align: center;
+color: white;
+}
+
+.contact-header h2 {
+font-size: 2.5rem;
+margin-bottom: 10px;
+font-weight: 300;
+}
+
+.contact-header p {
+font-size: 1.1rem;
+opacity: 0.9;
+}
+
+.contact-form {
+padding: 40px;
+}
+
+.form-group {
+margin-bottom: 25px;
+}
+
+.form-group input,
+.form-group textarea {
+width: 100%;
+padding: 15px 20px;
+border: 2px solid #e9ecef;
+border-radius: 10px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background-color: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+outline: none;
+border-color: #00A896;
+background-color: white;
+box-shadow: 0 0 0 3px rgba(0, 168, 150, 0.1);
+}
+
+.form-group textarea {
+resize: vertical;
+min-height: 120px;
+}
+
+.submit-btn {
+background: linear-gradient(135deg, #00A896, #5CE3C0);
+color: white;
+padding: 15px 40px;
+border: none;
+border-radius: 50px;
+font-size: 1.1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+width: 100%;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 25px rgba(0, 168, 150, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+/* contactanos */
 .footer p {
     margin: 0;
     font-size: 14px;
     color: #cccccc;
 }
 
-header label, input{
+/* Ocultar solo el checkbox del menú hamburguesa */
+#menu {
     display: none;
+}
+
+/* Ocultar solo la parte del label del menú hamburguesa en escritorio */
+@media screen and (min-width: 780px) {
+  .hamburger {
+    display: none;
+  }
 }
 
 @media (min-width: 780px) and (max-width: 900px) {
