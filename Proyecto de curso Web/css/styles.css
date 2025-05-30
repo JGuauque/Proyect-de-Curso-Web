@@ -519,7 +519,14 @@ background-attachment: fixed; /* Hace que el fondo permanezca fijo */
 }
 
 .contact-section::before{
-  background: linear-gradient(to bottom, rgba(34, 58, 53, 0.5), rgba(31, 30, 30, 0.774));
+  content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,rgba(34, 58, 53, 0.5),rgba(31, 30, 30, 0.774));
+    z-index: -1;
 }
 
 
@@ -728,12 +735,12 @@ box-shadow: 0 10px 25px rgba(0, 168, 150, 0.3);
 
     
 
-    .feature-grid {        
-        display: grid;
-        grid-template-columns: 1fr; /* columna única */
-        gap: 30px;
-        justify-items: center;
-        padding: 0 1rem; /* para que no toquen los bordes */
+  .feature-grid {        
+    display: grid;
+    grid-template-columns: 1fr; /* columna única */
+    gap: 30px;
+    justify-items: center;
+    padding: 0 1rem; /* para que no toquen los bordes */
   }
 
   
